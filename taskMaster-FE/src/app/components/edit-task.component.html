@@ -1,0 +1,66 @@
+<div class="col-10 col-xs-12 col-sm-8 col-md-6 col-lg-5 mx-auto d-block text-bg-light mt-3">
+    <form [formGroup]="taskForm" class="containter small-container bg-light border border-1 my-3 shadow">
+        <div class="row my-2 px-2">
+            <div class="col">
+                <label for="title" class="form-label mx-2">Title</label>
+                <input type="text" class="form-control" name="title" placeholder="Enter title"
+                    formControlName="taskTitle" />
+            </div>
+        </div>
+
+        <!-- Task Title validators -->
+
+        <div *ngIf="taskTitle!.invalid && (taskTitle!.dirty || taskTitle!.touched)"
+            class="alert alert-danger text-danger">
+            <div *ngIf="taskTitle!.errors?.['required']">
+                Task Title is required.
+            </div>
+            <div *ngIf="taskTitle!.errors?.['isString']">
+                Alphabets only allowed
+            </div>
+        </div>
+        <!-------------------------------->
+
+        <div class="row my-2 px-2">
+            <div class="col">
+                <label for="desc" class="form-label mx-2">Description</label>
+                <input type="text" class="form-control" name="desc" placeholder="Enter Description"
+                    formControlName="taskDescription" />
+            </div>
+        </div>
+        <!-- Task Description validators -->
+
+        <div *ngIf="taskDescription!.invalid && (taskDescription!.dirty || taskDescription!.touched)"
+            class="alert alert-danger text-danger">
+            <div *ngIf="taskDescription!.errors?.['required']">
+                Task Description is required.
+            </div>
+            <div *ngIf="taskDescription!.errors?.['isString']">
+                Alphabets only allowed
+            </div>
+        </div>
+        <!-------------------------------->
+
+        <div class="row my-2 px-2">
+            <div class="col">
+                <label for="dueDate" class="form-label mx-2">Due Date</label>
+                <input type="date" class="form-control" name="dueDate" placeholder="Enter Due Date"
+                    formControlName="taskDueDate" />
+            </div>
+        </div>
+
+        <div class="row my-2 px-2">
+            <div class="col">
+                <select class="form-select" aria-label="Default select example" formControlName="taskStatus">
+                    <option selected value="">select Status</option>
+                    <option value="Pending">Pending</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="completed">completed</option>
+                </select>
+            </div>
+        </div>
+        <div class="d-block mx-auto text-center my-2">
+            <button type="submit" class="btn btn-info" [disabled]="taskForm.invalid" (click)="addTask()">Save</button>
+        </div>
+    </form>
+</div>

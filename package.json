@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@angular-devkit/architect": "^0.1703.0",
+    "@angular-devkit/core": "^17.3.0",
+    "@schematics/angular": "^17.3.0"
+  }
+}

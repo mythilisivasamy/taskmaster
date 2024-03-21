@@ -60,6 +60,7 @@ taskRouter.delete(
   '/:id',
   asyncHandler(async (req, res) => {
     const task = await Task.findById(req.params.id);
+    
     if (task) {
       const deletedtask = await task.deleteOne();
       res.send({

@@ -1,0 +1,52 @@
+<div class="container">
+    <h3>Task List</h3>
+    <table class="table table-info table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Due Date</th>
+                <th>Status</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let task of tasks$ | async; let idx=index ">
+
+                <td> <span>{{task._id}}</span></td>
+                <td>{{task.title }}</td>
+                <td>{{task.description }}</td>
+                <td>{{task.dueDate | date}}</td>
+                <td>{{task.status}}</td>
+                <td><span (click)="onEdit(task)" style="cursor:pointer" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal"><fa-icon [icon]="faEdit"></fa-icon></span></td>
+                <td><span (click)="onDelete(task)" style="cursor:pointer"><fa-icon [icon]="faTrash"></fa-icon></span>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Task</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
