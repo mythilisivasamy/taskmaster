@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Observable, of, Subscription } from 'rxjs';
 import { Task } from '../../shared/task';
 import { TaskService } from '../../shared/task.service';
@@ -10,6 +10,7 @@ import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
   styleUrl: './task-list.component.css',
 })
 export class TaskListComponent implements OnInit {
+  @ViewChild('closebtn') closebtn: any;
   tasks$!: Observable<Task[]>;
   editTask$!: Task;
   subscription!: Subscription;
@@ -39,6 +40,12 @@ export class TaskListComponent implements OnInit {
     this.editTask$ = _task;
   }
 
+  onEdited(_task: Task) {
+    this.ts.editTask(_task).subscribe(() => {
+      window.location.reload();
+    });
+    this.closebtn.nativeElement.click();
+  }
   ngOnDestory() {
     this.subscription.unsubscribe();
   }
