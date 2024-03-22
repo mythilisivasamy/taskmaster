@@ -37,7 +37,7 @@ export class LoginComponent {
         if (userInfo.statusCode === '200') {
           this.isPending = false;
           localStorage.setItem('userInfo', JSON.stringify(userInfo));
-          this.router.navigate(['']);
+          this.router.navigate(['/taskList']);
         }
         if (userInfo.statusCode === '202') {
           this.isPending = false;

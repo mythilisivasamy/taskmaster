@@ -1,3 +1,7 @@
+<div class="spinner-border spinner-border-sm d-block mx-auto my-2" role="status" *ngIf="isPending">
+    <span class="visually-hidden">Loading...</span>
+</div>
+<p class="text-center text-danger">{{msg}}</p>
 <h4 class="text-center my-2">Sign Up</h4>
 <div class="col-10 col-xs-12 col-sm-8 col-md-6 col-lg-5 mx-auto d-block text-bg-light mt-3">
     <form [formGroup]="userForm" class="containter small-container bg-light border border-1 my-3 shadow">
