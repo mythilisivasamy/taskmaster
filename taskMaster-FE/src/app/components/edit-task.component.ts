@@ -20,9 +20,9 @@ export class EditTaskComponent implements OnChanges {
   @Output() edited = new EventEmitter<Task>();
   task!: Task;
   editForm: FormGroup = this.builder.group({
-    taskTitle: [null, [Validators.required, stringValidator(/^[a-zA-Z\s]+$/)]],
+    taskTitle: ['', [Validators.required, stringValidator(/^[a-zA-Z\s]+$/)]],
     taskDescription: [
-      null,
+      '',
       [Validators.required, stringValidator(/^[a-zA-Z\s]+$/)],
     ],
     taskDueDate: [null, Validators.required],
@@ -31,7 +31,7 @@ export class EditTaskComponent implements OnChanges {
 
   ngOnChanges(): void {
     this.editForm.setValue({
-      taskTitle: this.editTask$!.title,
+      taskTitle: this.editTask$.title,
       taskDescription: this.editTask$!.description,
       taskDueDate: this.editTask$!.dueDate,
       taskStatus: this.editTask$!.status,

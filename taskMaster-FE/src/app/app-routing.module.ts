@@ -10,7 +10,9 @@ const routes: Routes = [
   {
     path: 'taskList',
     component: TaskListComponent,
+    
   },
+
   {
     path: 'login',
     component: LoginComponent,
@@ -29,7 +31,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'taskList',
+    redirectTo: 'login',
     pathMatch: 'full',
   },
   {

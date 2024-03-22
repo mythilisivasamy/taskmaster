@@ -16,7 +16,7 @@
             <tr *ngFor="let task of tasks$ | async; let idx=index ">
 
                 <td> <span>{{idx+1}}</span></td>
-                <td>{{task.title }}</td>
+                <td>{{task.title}}</td>
                 <td>{{task.description }}</td>
                 <td>{{task.dueDate | date:'shortDate'}}</td>
                 <td>{{task.status}}</td>
@@ -52,9 +52,11 @@
             <li class="page-item disabled">
                 <a class="page-link">Previous</a>
             </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
+
+            <li *ngFor="let pageNo of noOfPages" class="page-item">
+                <a class="page-link">{{pageNo}}</a>
+            </li>
+
             <li class="page-item">
                 <a class="page-link" href="#">Next</a>
             </li>

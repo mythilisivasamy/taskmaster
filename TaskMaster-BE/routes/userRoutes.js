@@ -48,9 +48,9 @@ userRouter.post('/login', (req, res, next) => {
   UserModel.findOne({ email: email })
     .then((userInDB) => {
       if (!userInDB) {
-        return res.status(202).json({
+        return res.status(201).json({
           message: 'Invalid Email',
-          statusCode: '202',
+          statusCode: '201',
         });
       }
       bcryptjs.compare(password, userInDB.password).then((isMatched) => {
@@ -59,13 +59,13 @@ userRouter.post('/login', (req, res, next) => {
             { _id: userInDB._id },
             process.env.JWT_SECRET
           );
-          res.status(201).json({
+          res.status(200).json({
             userInfo: {
               token: jwtToken,
               userName: userInDB.firstName,
             },
             message: 'User Logged In Successfully',
-            statusCode: '201',
+            statusCode: '200',
           });
         } else {
           res

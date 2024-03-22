@@ -5,3 +5,10 @@ export interface Task {
   dueDate: string | null;
   status: string | null;
 }
+
+export interface User {
+  firstName?: string;
+  lastName?: string;
+  email: string;
+  password: string;
+}

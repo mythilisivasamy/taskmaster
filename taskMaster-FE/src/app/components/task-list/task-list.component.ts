@@ -16,11 +16,21 @@ export class TaskListComponent implements OnInit {
   subscription!: Subscription;
   faEdit = faEdit;
   faTrash = faTrash;
+  page: number = 1;
+  perPage: number = 2;
+  offset!: number;
+  noOfPages!: number[];
+  pagestring: string = '';
   constructor(private ts: TaskService) {}
 
   ngOnInit(): void {
     this.subscription = this.ts.getTasks().subscribe(
       (tasks: Task[]) => {
+        let pages = Math.round(tasks.length / this.perPage);
+        this.noOfPages = Array.from(
+          { length: pages },
+          (value, index) => index + 1
+        );
         this.tasks$ = of(tasks);
         this.ts.tasks$ = of(tasks);
       },
@@ -46,6 +56,7 @@ export class TaskListComponent implements OnInit {
     });
     this.closebtn.nativeElement.click();
   }
+  changePage() {}
   ngOnDestory() {
     this.subscription.unsubscribe();
   }

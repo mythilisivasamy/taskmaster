@@ -19,11 +19,11 @@ export class AddTaskComponent {
   taskForm: FormGroup = this.builder.group({
     taskTitle: ['', [Validators.required, stringValidator(/^[a-zA-Z\s]+$/)]],
     taskDescription: [
-      null,
+      '',
       [Validators.required, stringValidator(/^[a-zA-Z\s]+$/)],
     ],
-    taskDueDate: [null, Validators.required],
-    taskStatus: [null, Validators.required],
+    taskDueDate: ['', Validators.required],
+    taskStatus: ['', Validators.required],
   });
 
   get taskTitle() {
