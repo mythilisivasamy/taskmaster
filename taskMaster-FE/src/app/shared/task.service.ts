@@ -12,7 +12,7 @@ import { Task, User } from './task';
 })
 export class TaskService {
   tasks$!: Observable<Task[]>;
-  private uri = 'http://localhost:8000/api';
+  private uri = 'https://taskmaster-pzd1.onrender.com/api';
   constructor(private http: HttpClient) {
     this.tasks$ = this.getTasks();
   }
