@@ -1,5 +1,6 @@
 {
   "name": "task-master-fe",
+  "type": "module",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -21,6 +22,7 @@
     "@fortawesome/angular-fontawesome": "^0.14.1",
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "cors": "^2.8.5",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"

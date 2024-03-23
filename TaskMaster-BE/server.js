@@ -18,13 +18,15 @@ app.use(cors());
 //Configuring Process Environment Variables
 dotenv.config({ path: 'config.env' });
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8082;
 connectDB();
 
 //parsing request
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //loading routes
+app.use('/*',express.static('dist/task-master-fe/browser/'));
+
 app.use('/api/user', userRouter);
 app.use('/api/task', taskRouter);
 app.use('/api/seed', seedRouter);
