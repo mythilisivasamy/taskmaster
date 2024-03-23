@@ -25,7 +25,7 @@ connectDB();
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //loading routes
-app.use('/*',express.static('dist/task-master-fe/browser/'));
+app.use('/*', express.static('dist/task-master-fe/browser'));
 
 app.use('/api/user', userRouter);
 app.use('/api/task', taskRouter);
